@@ -26,6 +26,7 @@ public class TFPublisher : MonoBehaviour
         ros = ROSConnection.GetOrCreateInstance();
         ros.RegisterPublisher<TFMessageMsg>(topic_name);
         
+        
     }
 
     // Update is called once per frame
@@ -50,7 +51,8 @@ public class TFPublisher : MonoBehaviour
                 else
                 {
                     transform_stamped = new TransformStampedMsg(header_make("base_link"), sensor.tag, new TransformMsg(sensor.transform.localPosition.To<FLU>(), sensor.transform.localRotation.To<FLU>()));
-                }                
+                    //transform_stamped = new TransformStampedMsg(header_make("base_link"), sensor.tag, new TransformMsg(new Vector3Msg(sensor.transform.localPosition.x, sensor.transform.localPosition.y, sensor.transform.localPosition.z), new QuaternionMsg(sensor.transform.localRotation.x, sensor.transform.localRotation.y, sensor.transform.localRotation.z, sensor.transform.localRotation.w)));
+                }
 
                 tfMessageList.Add(transform_stamped);
             }
@@ -75,6 +77,4 @@ public class TFPublisher : MonoBehaviour
 
         return header;
     }
-
-
 }

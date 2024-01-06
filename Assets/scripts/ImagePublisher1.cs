@@ -8,15 +8,12 @@ using System;
 
 public class ImagePublisher1 : MonoBehaviour
 {
-
     ROSConnection ros;
 
     private RenderTexture cam;
     private Camera cam_component;
     public int img_width = 640;
     public int img_height = 480;
-
-
 
     public string compressed_image_topic = "compressed_image";
     // public string image_topic = "image";
@@ -28,7 +25,7 @@ public class ImagePublisher1 : MonoBehaviour
     // Used to determine how much time has elapsed since the last message was published
     private float timeElapsed = 0;
 
-    private string camera_info_topic = "camera_info";
+    //private string camera_info_topic = "camera_info";
 
 
     // Start is called before the first frame update
